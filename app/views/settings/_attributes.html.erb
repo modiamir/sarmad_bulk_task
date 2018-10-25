@@ -1,0 +1,34 @@
+<% fields = [
+    {name: "tracker_id", disabled: true},
+    {name: "subject", disabled: true},
+    {name: "description", disabled: false},
+    {name: "priority_id", disabled: false},
+    {name: "assigned_to_id", disabled: false},
+    {name: "start_date", disabled: false},
+    {name: "due_date", disabled: false},
+    {name: "estimated_hours", disabled: false},
+# "is_private",
+# "project_id",
+# "status_id",
+# "category_id",
+# "fixed_version_id",
+# "parent_issue_id",
+# "done_ratio",
+] %>
+
+
+<%= form_tag(bulk_task_project_settings_path, method: "post") do %>
+  <%= hidden_field_tag :project_id, @project.id %>
+  <% fields.each do |field| %>
+    <p>
+      <% @settings = Setting.available_settings["plugin_bulk_task"].present? ? Setting.plugin_bulk_task : {} %>
+      <%= label_tag("settings__attributes__#{field[:name]}", t("field_#{field[:name].split("_id").first}")) %>
+      <%= check_box_tag "settings[project_#{@project.id}][attributes][#{field[:name]}]",
+                        true,
+                        field[:disabled] ? true : @settings["project_#{@project.id}"].present? ? @settings["project_#{@project.id}"]["attributes"][field[:name]] : false,
+                        id: "settings__attributes__#{field[:name]}",
+                        disabled: field[:disabled] %>
+    </p>
+  <% end %>
+  <%= submit_tag("Submit") %>
+<% end %>

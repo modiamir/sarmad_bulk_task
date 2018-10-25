@@ -1,0 +1,36 @@
+<%= title l(:label_issue_bulk) %>
+<%= form_for @issues, :url => project_bulk_path(project_id: @project.id),
+                      :html => {:id => 'issue-form', :multipart => true} do |f| %>
+<table>
+  <tbody>
+    <tr>
+      <% @fields.each do |field| %>
+        <th>
+          <%= field %>
+        </th>
+      <% end %>
+      <th></th>
+    </tr>
+    <%= render partial: 'rows', locals: { issues: @issues } %>
+  </tbody>
+</table>
+  <%= submit_tag l(:button_create) %>
+<% end %>
+
+<script type="text/javascript">
+  $(document).on('click', '.add-after', function (event) {
+      event.preventDefault();
+      $.ajax({
+          url: $(event.target).attr('href')
+      }).success(function (res) {
+          $(event.target).closest('tr').after(res);
+      });
+  });
+
+  $(document).on('click', '.remove-me', function (event) {
+      event.preventDefault();
+      if ($(event.target).closest('tbody').find('tr').length > 2) {
+          $(event.target).closest('tr').remove();
+      }
+  });
+</script>

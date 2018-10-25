@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  settings:
+    attributes: Bulk Task Attributes
+    custom_fields: Custom Fields
+    description: Select attributes and custom fields that you want to be displayed in issue bulk form

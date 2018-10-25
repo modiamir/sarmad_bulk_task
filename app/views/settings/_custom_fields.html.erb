@@ -1,0 +1,8 @@
+<% fields = IssueCustomField.all.map{|icf|{name:icf.name, id: icf.id}} %>
+
+<% fields.each do |field| %>
+  <p>
+    <%= label_tag("settings__custom_fields__#{field[:id]}", field[:name]) %>
+    <%= check_box_tag "settings[custom_fields__#{field[:id]}]", true, @settings["custom_fields__#{field[:id]}"], id: "settings__custom_fields__#{field[:id]}" %>
+  </p>
+<% end %>

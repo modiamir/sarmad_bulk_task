@@ -1,0 +1,28 @@
+<%= fields_for 'issues[]', issue do |f| %>
+  <tr>
+    <% @fields.each do |field| %>
+      <td>
+        <%= field_tag f, issue, field_name: field %>
+        <% if issue.errors[field].length %>
+          <ul>
+            <% issue.errors[field].each do |message|%>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </td>
+    <% end %>
+
+    <td>
+      <%= link_to '-', '#', class: 'remove-me' %>
+      <%= link_to '+',
+                  new_project_bulk_path(project_id: @project.id),
+                  class: 'add-after'
+
+      %>
+
+    </td>
+  </tr>
+<% end %>
+
+
