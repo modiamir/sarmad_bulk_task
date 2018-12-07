@@ -1,6 +1,6 @@
 Redmine::Plugin.register :bulk_task do
   name 'Bulk Task plugin'
-  author 'Amir Modarresi'
+  author 'SarmadBS'
   description 'This plugin add issue bulk creation feature'
   version '0.0.1'
   url 'http://sarmadbs.com/'
