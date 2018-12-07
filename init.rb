@@ -3,8 +3,8 @@ Redmine::Plugin.register :bulk_task do
   author 'Amir Modarresi'
   description 'This plugin add issue bulk creation feature'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
-  author_url 'http://amir.modarre.si'
+  url 'http://sarmadbs.com/'
+  author_url 'plugin@satrapp.com'
   settings :default => {'empty' => true}, :partial => 'settings/bulk_task_settings'
 
   unless ProjectsHelper.included_modules.include?(ProjectsHelperPatch)
