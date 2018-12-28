@@ -35,6 +35,16 @@ class BulksController < ApplicationController
       @issues.each do |issue|
         issue.save!
       end
+
+      easy_gantt_path = easy_gantt_path(project_id: @project.id)
+      # begin
+      # rescue
+      #   easy_gantt_path = nil
+      # end
+      flash[:notice] = l(:notice_bulk_issue_successful_create,
+                         count: @issues.length,
+                         easy_gantt_path: easy_gantt_path,
+                         overview_path: project_path(id: @project.id))
     end
 
     redirect_to action: :new

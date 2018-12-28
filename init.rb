@@ -17,3 +17,10 @@ Redmine::Plugin.register :bulk_task do
     end
   end
 end
+
+Redmine::MenuManager.map :project_menu do |menu|
+  menu.push(:bulk_task, { controller: 'bulks', action: 'new' },
+            param: :project_id,
+            caption: :bulk_task,
+            if: proc { |p| User.current.allowed_to?(:bulk_issues, p, :global => true) })
+end
