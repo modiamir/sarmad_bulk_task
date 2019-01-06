@@ -1,11 +1,10 @@
 Redmine::Plugin.register :bulk_task do
-  name 'Bulk Task plugin'
+  name 'تسک ساز پیشرفته'
   author 'SarmadBS'
-  description 'This plugin add issue bulk creation feature'
-  version '0.0.1'
-  url 'http://sarmadbs.com/'
-  author_url 'plugin@satrapp.com'
-  settings :default => {'empty' => true}, :partial => 'settings/bulk_task_settings'
+  description 'ساخت تسک به صورت دسته جمعی با حداقل اطلاعات'
+  version '1.0.1'
+  url 'http://sarmadbs.com'
+  author_url 'mailto:plugin@satrapp.com'
 
   unless ProjectsHelper.included_modules.include?(ProjectsHelperPatch)
     ProjectsHelper.send(:include, ProjectsHelperPatch)
