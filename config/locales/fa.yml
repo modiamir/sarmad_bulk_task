@@ -4,3 +4,9 @@ fa:
   tracker_id: جنس کار
   settings:
     attributes: ملزومات تسک ساز سریع
+  description: توضیحات
+  priority_id: اولویت
+  assigned_to_id: تخصیص به
+  start_date: تاریخ اغاز
+  due_date: تاریخ سررسید
+  estimated_hours: زمان تخمینی
