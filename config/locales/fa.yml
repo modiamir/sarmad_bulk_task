@@ -4,9 +4,12 @@ fa:
   tracker_id: جنس کار
   settings:
     attributes: ملزومات تسک ساز سریع
+    custom_fields: فیلدهای سفارشی
+    description: ویژگیها و فیلدهای مورد نظر خود را انتخاب کنید
   description: توضیحات
   priority_id: اولویت
   assigned_to_id: تخصیص به
   start_date: تاریخ اغاز
   due_date: تاریخ سررسید
   estimated_hours: زمان تخمینی
+  notice_bulk_issue_successful_create: 'تعداد %{count} تسک ساخته شد. میتوانید برای تنظیم اولویتها به.  <a href="%{easy_gantt_path}">گانت پیشرفته</a> مراجعه کنید یا به  <a href="%{overview_path}">اصلی پروژه</a> بروید.'
