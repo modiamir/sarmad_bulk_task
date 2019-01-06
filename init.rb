@@ -5,6 +5,7 @@ Redmine::Plugin.register :bulk_task do
   version '1.0.1'
   url 'http://sarmadbs.com'
   author_url 'mailto:plugin@satrapp.com'
+  settings :default => { empty: true }
 
   unless ProjectsHelper.included_modules.include?(ProjectsHelperPatch)
     ProjectsHelper.send(:include, ProjectsHelperPatch)
