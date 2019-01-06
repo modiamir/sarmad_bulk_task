@@ -2,3 +2,5 @@ fa:
   label_issue_bulk: به تسک ساز پیشرفته خوش آمدید
   subject: عنوان
   tracker_id: جنس کار
+  settings:
+    attributes: ملزومات تسک ساز سریع
