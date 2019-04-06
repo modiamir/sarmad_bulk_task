@@ -33,6 +33,12 @@ class BulksController < ApplicationController
 
     ActiveRecord::Base.transaction do
       @issues.each do |issue|
+        issue.checklists.clear
+        if issue.new_record? && issue.tracker.checklist_pattern.present? && issue.tracker.checklist_pattern.items.any?
+          issue.tracker.checklist_pattern.items.each do |item|
+            issue.checklists.build(subject: item)
+          end
+        end
         issue.save!
       end
 
